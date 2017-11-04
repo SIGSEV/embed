@@ -1,0 +1,19 @@
+{
+  "name": "embed",
+  "version": "1.0.0",
+  "description": "Clean and simple frames, powered by the Embed engine",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SIGSEV/embed.git"
+  },
+  "author": "Balthazar Gronon <bgronon@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/SIGSEV/embed#readme",
+  "private": true,
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "pm2": "^2.7.2"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "rich",
+  "provider_url": "https://sigsev.io",
+  "author_name": "Balthazar Gronon",
+  "author_url": "https://github.com/Apercu",
+  "title": "FreeCodeCamp Stragazers Evolution",
+  "html": "<iframe src=\"https://codepen.io/jckr/embed/preview/oWLbYQ\" height=\"300\" scrolling=\"no\" frameborder=\"0\" allowtransparency=\"true\" style=\"width: 100%; overflow: hidden;\"></iframe>",
+  "height": "300",
+  "width": "800",
+  "version": "1.0",
+  "provider_name": "SIGSEV",
+  "thumbnail_url": "https://avatars2.githubusercontent.com/u/11440121?v=3&s=200",
+  "thumbnail_height": "200",
+  "thumbnail_width": "200",
+  "success": true
+}
