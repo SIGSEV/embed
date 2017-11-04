@@ -16,12 +16,12 @@ server.get('/', (req, res) => {
 
   request(
     `https://raw.githubusercontent.com/SIGSEV/embed/gh-pages/${path}/embed.json`,
-    (err, res) => {
-      if (err || res.statusCode > 399) {
+    (err, resp) => {
+      if (err || resp.statusCode > 399) {
         return res.status(400).end()
       }
 
-      res.send(JSON.parse(res.body))
+      res.send(JSON.parse(resp.body))
     },
   )
 })
