@@ -21,7 +21,7 @@ server.get('/', (req, res) => {
         return res.status(400).end()
       }
 
-      res.json(resp.body)
+      res.json(JSON.parse(resp.body))
     },
   )
 })
