@@ -3,10 +3,9 @@ const request = require('request')
 
 const server = express()
 
-server.get('/oembed', (req, res) => {
-
+server.get('/', (req, res) => {
   const url = 'https://sigsev.github.io/embed/fcc/evolution/'
-  console.log(req.params.url)
+  console.log(req.query.url)
   // request(`https://raw.githubusercontent.com/SIGSEV/embed/gh-pages/fcc/evolution/embed.json`)
   res.send({})
 })
