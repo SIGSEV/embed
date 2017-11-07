@@ -33,13 +33,13 @@ server.get('/', async (req, res) => {
     return res.status(400).end()
   }
 
-  const path = req.query.url.replace('https://embed.sigsev.io/', '')
+  const path = req.query.url.replace('https://embed.sigsev.io', '')
 
   try {
     const json = await getJSON(path)
     res.json(json)
   } catch (e) {
-    res.status(400).send({ message: e.message })
+    res.status(400).send({ message: e ? e.message : 'error' })
   }
 })
 
