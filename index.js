@@ -53,7 +53,7 @@ const proxyUrl = (req, res, url) => {
 
   return proxy.web(req, res, {
     changeOrigin: true,
-    forward,
+    target,
   })
 }
 
