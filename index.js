@@ -1,5 +1,7 @@
 const express = require('express')
 const request = require('request')
+const httpProxy = require('http-proxy')
+const cheerio = require('cheerio')
 
 const server = express()
 
@@ -9,27 +11,60 @@ server.use((req, res, next) => {
   next()
 })
 
-server.get('/', (req, res) => {
+const getJSON = path =>
+  new Promise((resolve, reject) =>
+    request(
+      `https://raw.githubusercontent.com/SIGSEV/embed/gh-pages${path.replace(
+        /\/$/,
+        '',
+      )}/embed.json`,
+      (err, resp) => {
+        if (err || resp.statusCode > 399) {
+          return reject(err)
+        }
+
+        resolve(JSON.parse(resp.body))
+      },
+    ),
+  )
+
+server.get('/', async (req, res) => {
   if (!req.query.url) {
     return res.status(400).end()
   }
 
-  const path = req.query.url
-    .replace(/\/$/, '')
-    .split('/')
-    .slice(-2)
-    .join('/')
+  const path = req.query.url.replace('https://embed.sigsev.io/', '')
 
-  request(
-    `https://raw.githubusercontent.com/SIGSEV/embed/gh-pages/${path}/embed.json`,
-    (err, resp) => {
-      if (err || resp.statusCode > 399) {
-        return res.status(400).end()
-      }
+  try {
+    const json = await getJSON(path)
+    res.json(json)
+  } catch (e) {
+    res.status(400).send({ message: e.message })
+  }
+})
 
-      res.json(JSON.parse(resp.body))
-    },
-  )
+const proxy = httpProxy.createProxyServer()
+
+const proxyUrl = (req, res, url) => {
+  const match = url.match(/(https?:\/\/[^\/]*)(.*)/)
+
+  const target = match[1]
+  req.url = match[2]
+
+  return proxy.web(req, res, {
+    changeOrigin: true,
+    forward,
+  })
+}
+
+server.get('*', async (req, res) => {
+  try {
+    const json = await getJSON(req.path)
+    const target = cheerio('iframe', json.html).attr('src')
+    proxyUrl(req, res, target)
+  } catch (e) {
+    res.status(400).send({ message: e ? e.message : 'error' })
+  }
 })
 
 const port = 4500
