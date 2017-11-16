@@ -4,7 +4,7 @@
   "author_name": "Balthazar Gronon",
   "author_url": "https://github.com/Apercu",
   "title": "FreeCodeCamp Stragazers Map",
-  "html": "<iframe src=\"http://fcc.sigsev.io/map\" width=\"800\" height=\"300\" scrolling=\"no\" frameborder=\"0\" allowtransparency=\"true\" style=\"width: 100%; overflow: hidden;\"></iframe>",
+  "html": "<iframe src=\"https://fcc.sigsev.io/map\" width=\"800\" height=\"300\" scrolling=\"no\" frameborder=\"0\" allowtransparency=\"true\" style=\"width: 100%; overflow: hidden;\"></iframe>",
   "height": 300,
   "width": 800,
   "version": "1.0",
