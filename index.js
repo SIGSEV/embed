@@ -14,10 +14,7 @@ server.use((req, res, next) => {
 const getJSON = path =>
   new Promise((resolve, reject) =>
     request(
-      `https://raw.githubusercontent.com/SIGSEV/embed/gh-pages${path.replace(
-        /\/$/,
-        '',
-      )}/embed.json`,
+      `https://raw.githubusercontent.com/SIGSEV/embed/master${path.replace(/\/$/, '')}/embed.json`,
       (err, resp) => {
         if (err || resp.statusCode > 399) {
           return reject(err)
