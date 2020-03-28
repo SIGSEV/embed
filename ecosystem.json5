@@ -5,8 +5,8 @@
   }],
   "deploy": {
     "production": {
-      "user"       : "pm2",
-      "host"       : "sigsev.io",
+      "user"       : "me",
+      "host"       : "balthazar.dev",
       "ref"        : "origin/master",
       "repo"       : "git@github.com:SIGSEV/embed.git",
       "path"       : "/var/www/embed",

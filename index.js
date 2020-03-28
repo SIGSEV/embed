@@ -30,7 +30,7 @@ server.get('/', async (req, res) => {
     return res.status(400).end()
   }
 
-  const path = req.query.url.replace('https://embed.sigsev.io', '')
+  const path = req.query.url.replace('https://embed.balthazar.dev', '')
 
   try {
     const json = await getJSON(path)
