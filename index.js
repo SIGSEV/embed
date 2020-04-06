@@ -25,7 +25,7 @@ const getJSON = path =>
     ),
   )
 
-server.get('/', async (req, res) => {
+server.get('/oembed', async (req, res) => {
   if (!req.query.url) {
     return res.status(400).end()
   }
