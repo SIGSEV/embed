@@ -1,5 +1,5 @@
-<p align="center"><img src="https://cdn.pbrd.co/images/GS7yHnX.png" height="200" /></p>
-<p align="center"><strong>Clean and simple frames, powered by the Embed engine.</strong></p>
+<p align="center"><strong>Clean and simple frames, powered by the Embed.ly engine.</strong></p>
+<p align="center">Deployed @ embed.balthazar.dev</p>
 
 <br />
 <br />
